@@ -256,7 +256,7 @@ class DomainListingMiddleware(object):
         self.app = app
 
     def __call__(self, environ, start_response):
-        if not environ.has_key('subreddit'):
+        if not 'subreddit' in environ:
             path = environ['PATH_INFO']
             domain, rest = path_info_split(path)
             if domain == "domain" and rest:
